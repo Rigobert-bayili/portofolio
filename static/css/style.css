@@ -362,3 +362,11 @@ footer {
         padding: 1.5rem 1rem;
     }
 }
+/* ── DATE PROJET ── */
+.date {
+    font-size: 13px;
+    color: #2563A8;
+    font-style: italic;
+    display: block;
+    margin-bottom: 0.5rem;
+}

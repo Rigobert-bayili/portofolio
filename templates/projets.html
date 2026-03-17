@@ -4,10 +4,12 @@
 <section class="projets">
     <h1>Mes Projets</h1>
 
+    <!-- Projets professionnels -->
+    <h2>Projets Professionnels</h2>
     <div class="cards">
         <div class="card">
             <h3>Analyse PDM UNICEF — Niger</h3>
-            <span>DEDI · 2025</span>
+            <span class="date">DEDI · 2025</span>
             <p>Traitement de 200+ questionnaires post-distribution 
             sur les kits scolaires. Scripts R reproductibles, 
             rapports analytiques pour 6 régions.</p>
@@ -19,7 +21,7 @@
         </div>
         <div class="card">
             <h3>Tableaux de bord ACRA</h3>
-            <span>ACRA · 2025 – Présent</span>
+            <span class="date">ACRA · 2025 – Présent</span>
             <p>Développement de 5 tableaux de bord Power BI 
             pour le suivi en temps réel de 2 000+ OSCs. 
             Réduction des erreurs de saisie de 30%.</p>
@@ -31,7 +33,7 @@
         </div>
         <div class="card">
             <h3>Cartographie Genre & Climat</h3>
-            <span>Université Joseph Ki-Zerbo · 2025</span>
+            <span class="date">Université Joseph Ki-Zerbo · 2025</span>
             <p>Conception et déploiement d'outils de collecte 
             auprès de 7 000+ répondants. Cartes thématiques 
             QGIS remises au ministère.</p>
@@ -43,7 +45,7 @@
         </div>
         <div class="card">
             <h3>Enquête Gouvernance — CGD</h3>
-            <span>CGD · 2021 – 2024</span>
+            <span class="date">CGD · 2021 – 2024</span>
             <p>30+ questionnaires sur la gouvernance dans 
             les 13 régions du Burkina Faso. Supervision 
             de 50 enquêteurs terrain.</p>
@@ -54,6 +56,28 @@
             </div>
         </div>
     </div>
+
+    <!-- Projets GitHub -->
+    <h2>Projets GitHub</h2>
+    <p class="contact-intro">Projets récupérés automatiquement depuis mon GitHub.</p>
+    <div class="cards">
+        {% for repo in repos %}
+        <div class="card">
+            <h3>{{ repo.name }}</h3>
+            <p>{{ repo.description or "Aucune description" }}</p>
+            <div class="tags">
+                {% if repo.language %}
+                <span class="tag">{{ repo.language }}</span>
+                {% endif %}
+                <span class="tag">⭐ {{ repo.stargazers_count }}</span>
+                <span class="tag">🍴 {{ repo.forks_count }}</span>
+            </div>
+            <br>
+            <a href="{{ repo.html_url }}" target="_blank" class="btn">Voir sur GitHub</a>
+        </div>
+        {% endfor %}
+    </div>
+
 </section>
 
 {% endblock %}
