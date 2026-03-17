@@ -1,0 +1,56 @@
+{% extends "base.html" %}
+{% block content %}
+
+<section class="contact">
+    <h1>Me Contacter</h1>
+    <p class="contact-intro">Disponible pour toute opportunité de collaboration ou recrutement.</p>
+
+    <!-- Infos de contact -->
+    <div class="contact-infos">
+        <div class="contact-card">
+            <h3>WhatsApp</h3>
+            <a href="https://wa.me/22667682323" target="_blank">+226 67 68 23 23</a>
+            <br>
+            <a href="https://wa.me/22177656112" target="_blank">+221 77 656 11 21</a>
+        </div>
+        <div class="contact-card">
+            <h3>Email</h3>
+            <a href="mailto:basilebayili@gmail.com">basilebayili@gmail.com</a>
+        </div>
+        <div class="contact-card">
+            <h3>Localisation</h3>
+            <p>Dakar, Sénégal</p>
+        </div>
+    </div>
+
+    <!-- Formulaire -->
+    <div class="form-container">
+        <h2>Envoyer un message</h2>
+
+        {% with messages = get_flashed_messages(with_categories=true) %}
+            {% if messages %}
+                {% for category, message in messages %}
+                    <div class="alert alert-{{ category }}">{{ message }}</div>
+                {% endfor %}
+            {% endif %}
+        {% endwith %}
+
+        <form method="POST" action="/contact">
+            <div class="form-group">
+                <label for="nom">Nom complet</label>
+                <input type="text" id="nom" name="nom" placeholder="Votre nom" required>
+            </div>
+            <div class="form-group">
+                <label for="email">Email</label>
+                <input type="email" id="email" name="email" placeholder="votre@email.com" required>
+            </div>
+            <div class="form-group">
+                <label for="message">Message</label>
+                <textarea id="message" name="message" rows="6" placeholder="Votre message..." required></textarea>
+            </div>
+            <button type="submit" class="btn-submit">Envoyer le message</button>
+        </form>
+    </div>
+</section>
+
+{% endblock %}
