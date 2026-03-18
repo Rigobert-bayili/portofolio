@@ -1,4 +1,4 @@
-from flask import Flask, render_template, request, flash, redirect, url_for
+from flask import Flask, render_template, request, flash, redirect, url_for, send_from_directory
 from flask_mail import Mail, Message
 from dotenv import load_dotenv
 import os
@@ -54,6 +54,10 @@ def contact():
             flash("Erreur lors de l'envoi. Réessayez plus tard.", "danger")
         return redirect(url_for("contact"))
     return render_template("contact.html")
+
+@app.route("/cv")
+def cv():
+    return send_from_directory("static", "CV_BAYILI_Basile_Data_SPECIALISTE.pdf")
 
 if __name__ == "__main__":
     app.run(debug=True)
